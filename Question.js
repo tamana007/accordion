@@ -4,16 +4,22 @@ import questions from './data';
 
 
 const Question = ({title,info}) => {
- 
+ const [click,setClick]=useState(false);
+//  const[info,setInfo]=useState('');
+
+function changeState(){
+  setClick(!click)
+}
 
   
   return (
     <article className='question'>
       <header>
         <h4>{title}</h4>
-        <button className='btn'>clicnk e</button>
+        <button className='btn' onClick={changeState}>{click?<AiOutlineMinus/>:<AiOutlinePlus/>}</button>
       </header>
-      <p>{info}</p>
+      {click && <p>{info}</p>}
+      
 
     </article>
   )
